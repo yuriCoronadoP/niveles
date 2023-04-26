@@ -25,6 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PersonaSeeder::class
         ]);
-        Persona::factory(100)->create();
+        Persona::factory(10000)->create();
     }
 }

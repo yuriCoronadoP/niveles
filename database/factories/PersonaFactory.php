@@ -37,14 +37,22 @@ class PersonaFactory extends Factory
     }
 
     public function configure(): static{        
-        return $this->afterCreating(function (Persona $persona){            
-            $referido = random_int(0, 1) == 1 ? Persona::inRandomOrder()->first() : null;
-            if($referido){
-                $persona->update([
-                    'id_referido' => $referido == null ? null : $referido->id,
-                    'nivel' => $referido == null ? 1 : $referido->nivel + 1,
-                ]);
-            }            
+        $max_nivel = 5; 
+        return $this->afterCreating(function(Persona $persona) use($max_nivel){ 
+            // dd($persona->id);          
+            // $referido = random_int(0, 1) == 1 ? Persona::inRandomOrder()->first() : null;
+            
+            $referido = Persona::inRandomOrder()
+            ->where('nivel','<', $max_nivel)
+            ->where('id','!=',$persona->id)
+            ->whereNotNull('nivel')
+            ->first();
+            // dd($referido);
+            $persona->update([
+                'id_referido' => $referido->id,
+                'nivel' => intval($referido->nivel) + 1,
+            ]);
+
         });
     }
 }
