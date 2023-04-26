@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
             $table->integer('edad');
-            $table->unsignedBigInteger('referido')->nullable();
-            $table->foreign('referido')->references('id')->on('personas');
+            $table->unsignedBigInteger('id_referido')->nullable();
+            $table->integer('nivel')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_referido')->references('id')->on('personas');
         });
     }
 

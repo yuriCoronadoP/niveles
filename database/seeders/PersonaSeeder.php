@@ -16,29 +16,35 @@ class PersonaSeeder extends Seeder
     {
         // guardar primer registro
         DB::table('personas')->insert([
-            'nombre' => Str::random(10),
-            'apellido_paterno' => Str::random(10),
-            'apellido_materno' => Str::random(10),
-            'edad' => rand(1,99),
-            'referido' => null
+            // 'nombre' => Str::random(10),
+            // 'apellido_paterno' => Str::random(10),
+            // 'apellido_materno' => Str::random(10),
+            'nombre' => 'Diego',
+            'apellido_paterno' => 'Juárez',
+            'apellido_materno' => 'Hernández',
+            'edad' => 31,
+            'id_referido' => null,
+            'nivel' => 1
         ]);
 
         // guardar primer registro
         DB::table('personas')->insert([
-            'nombre' => Str::random(10),
-            'apellido_paterno' => Str::random(10),
-            'apellido_materno' => Str::random(10),
-            'edad' => rand(1,99),
-            'referido' => 1
+            'nombre' => 'Yuriria',
+            'apellido_paterno' => 'Coronado',
+            'apellido_materno' => 'Pérez',
+            'edad' => 36,
+            'id_referido' => 1,
+            'nivel' => 2
         ]);
         
         // guardar primer registro
         DB::table('personas')->insert([
-            'nombre' => Str::random(10),
-            'apellido_paterno' => Str::random(10),
-            'apellido_materno' => Str::random(10),
-            'edad' => rand(1,99),
-            'referido' => 2
+            'nombre' => 'Paola',
+            'apellido_paterno' => 'Coronado',
+            'apellido_materno' => 'Lopez',
+            'edad' => 42,
+            'id_referido' => 2,
+            'nivel' => 3
         ]);
     }
 }

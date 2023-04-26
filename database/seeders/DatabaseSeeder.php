@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use Database\Factories\PersonaFactory;
 use Illuminate\Database\Seeder;
+use App\Models\Persona;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PersonaSeeder::class
         ]);
+        Persona::factory(100)->create();
     }
 }
